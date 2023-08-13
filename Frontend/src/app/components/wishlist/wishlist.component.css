@@ -1,0 +1,9 @@
+.desc{
+    height: 100px;
+}
+.btn-success
+{
+    background-color: #dd5c5c;
+    border-radius: 10px;
+    border: none;
+}

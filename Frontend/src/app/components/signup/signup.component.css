@@ -1,0 +1,45 @@
+.login-container {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    height: 90vh;
+    width: 90vw;
+    margin-left: 20px;
+  }
+  
+  .vertical-center {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 0 20px 0 20px;
+  }
+  
+  .logo-container {
+  }
+  .logo-container img {
+    max-width: 650px;
+    height: 500px;
+  }
+  
+  .btn-primary {
+    color:  #ffffff;
+    background-color: #e66e7c; 
+  }
+  a {
+    color: #c17780;
+  }
+  @media (max-width: 575.98px) {
+    .login-container {
+      grid-template-columns: 100%;
+    }
+    .logo-container {
+      display: none;
+    }
+  }
+  .alert {
+    padding-top: 10px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

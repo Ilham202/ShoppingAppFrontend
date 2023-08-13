@@ -1,0 +1,52 @@
+<!-- Header -->
+<app-header></app-header>
+
+
+
+<!-- Cart -->
+<div class="container">
+  <div class="container mt-5">
+
+    <div>
+      <div class="row justify-content-md-center" *ngIf="wishlistdata?.length > 0; else notTrue">
+        <div class="col-lg-4 mb-4" *ngFor="let wishl of wishlistdata">
+
+          <div class="card p-2">
+            <img class="card-img-top product-card" src={{wishl.product.imageUrl}} class="card-img-top product-card"
+              alt="...">
+            <hr>
+            <div class="card-body">
+              <a routerLink="/search/{{wishl.product.productName}}">
+                <h5 class=" font-weight-bold card-title">{{wishl.product.productName}}
+                </h5>
+              </a>
+              <div class="desc">
+                <p class="card-text ">{{wishl.product.productDescription}}</p>
+              </div>
+              
+              <p class="card-text font-weight-bold">Price: &#8377;{{wishl.product.price}}</p>
+              <p class="card-text font-weight-bold">Quantity: {{wishl.quantity}}</p>
+            </div>
+
+
+            <button (click)="deletebtn(wishl.product.productName)" class="btn btn-danger">Remove</button>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #notTrue>
+        <div class="vertical-center text-center">
+          <img src="assets/cart.png" class="img-fluid" alt="">
+          <P class="text-muted">Your Wishlist Is Empty</P>
+          <a routerLink="/products"> <button class="btn btn-success mt-3 rounded-0 shadow-sm">GO TO
+              HOMEPAGE</button> </a>
+        </div>
+      </ng-template>
+    </div>
+
+
+
+  </div>
+
+
+</div>

@@ -1,0 +1,65 @@
+<app-header></app-header>
+
+<div class="login-container">
+  <div class="logo-container vertical-center">
+    <img src="assets/images/register.png">
+  </div>
+  <div class=" vertical-center text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+<br>
+          <form [formGroup]="form" (ngSubmit)="submit()">
+
+            <h3 class="mb-4">Register</h3>
+            <div class="form-floating text-left">
+              <label for="user">Login-Id</label>
+              <input type="text" class="form-control" formControlName="loginId" id="user" placeholder="Login-Id">
+            </div>
+
+            <h1 class="h3 mb-3 fw-normal"></h1>
+            <div class="form-floating text-left">
+              <label for="firstname">First-Name</label>
+              <input type="text" class="form-control" formControlName="firstName" placeholder="First-Name">
+            </div>
+            <h1 class="h3 mb-3 fw-normal"></h1>
+            <div class="form-floating text-left">
+              <label for="lastname">Last-Name</label>
+              <input type="text" class="form-control" formControlName="lastName" placeholder="Last-Name">
+            </div>
+            <h1 class="h3 mb-3 fw-normal"></h1>
+            <div class="form-floating text-left">
+              <label for="email">Email address</label>
+              <input type="text" class="form-control" formControlName="email" id="email" placeholder="name@example.com">
+            </div>
+            <h1 class="h3 mb-3 fw-normal"></h1>
+            <div class="form-floating text-left">
+              <label for="phoneNo.">Contact-Number</label>
+              <input type="text" class="form-control" formControlName="contactNumber" placeholder="Contact-Number">
+            </div>
+            <h1 class="h3 mb-3 fw-normal"></h1>
+            <div class="form-floating text-left">
+              <label for="password ">Password</label>
+              <input type="password" class="form-control" formControlName="password" id="password"
+                placeholder="Password">
+            </div>
+            <h1 class="h3 mb-3 fw-normal"></h1>
+            <div class="form-floating text-left">
+              <label for="confirm_password ">Confirm-Password</label>
+              <input type="password" class="form-control" formControlName="confirm_password"
+                placeholder="Re-Enter Password">
+            </div>
+            <h1 class="h3 mb-3 fw-normal"></h1>
+            <div *ngIf="f['confirm_password'].errors" class="text-danger">Confirm-Password and Password must be same
+            </div>
+            <h1 class="h3 mb-3 fw-normal"></h1>
+            <br>
+            <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="form.invalid">Register</button>
+          </form>
+          <p class="text-right mt-3">Already have an account? <a routerLink="/login">Login here!</a></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

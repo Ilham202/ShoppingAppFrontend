@@ -1,0 +1,31 @@
+[
+    {
+        "name": "Iphone",
+        "imgUrl": "assets/ProductsImages/iphone.jpg"
+    },
+    {
+        "name": "Headphone",
+        "imgUrl": "assets/ProductsImages/headphone.jpg"
+    },
+    {
+        "name": "Laptop",
+        "imgUrl": "assets/ProductsImages/laptop-1.jpg"
+    },
+    {
+        "name": "Airpods",
+        "imgUrl": "assets/ProductsImages/airpod.jpg"
+    },
+    {
+        "name": "Shoes",
+        "imgUrl": "assets/ProductsImages/Shoes.JPG"
+    },
+    {
+        "name": "Apple-Watch",
+        "imgUrl": "assets/ProductsImages/watch.jpg"
+    },
+    {
+        "name": "Default",
+        "imgUrl": "assets/ProductsImages/default-product.jpg"
+    }
+
+]

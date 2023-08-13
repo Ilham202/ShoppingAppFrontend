@@ -1,0 +1,8 @@
+@import "~css-star-rating/css/star-rating";
+.modal-open {
+  overflow: unset;
+}
+
+.modal-backdrop {
+  display: none;
+}

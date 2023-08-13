@@ -1,0 +1,123 @@
+<!-- Header -->
+<app-header></app-header>
+
+<!-- Products -->
+<div class="container mt-5">
+  <div class="row" *ngIf="product; else notTrue">
+
+    <div class="col-lg-7 mb-4">
+      <div class="card p-2">
+        <img src={{product.imageUrl}} class="card-img-top product-card" alt="...">
+
+      </div>
+    </div>
+
+    <div class="col-lg">
+      <div class="card-body">
+        <h1 class="card-title">{{product.productName}}</h1>
+        <span class="font-weight-bold"> Description: </span>
+        <h6 class="card-text mt-3 mb-4">{{product.productDescription}}</h6>
+        <h5 class="card-text font-weight-bold mb-3 mt-3">Price: ₹{{product.price}}</h5>
+        <span class="font-weight-bold"> Highlights: </span>
+        <h6 class="card-text mt-3 mb-4" *ngFor="let productsdecription of productsdesc">
+          <ul>
+            <li>{{productsdecription}}</li>
+          </ul>
+        </h6>
+        <button type="button" class="btn btn-primary mr-4" *ngIf="!isAdmin && isUser" data-toggle="modal"
+          attr.data-target="#wishmodel{{product.id}}">
+          Add To Wishlist
+        </button>
+
+        <div class="modal fade" id="wishmodel{{product.id}}">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add to wishlist</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <form #wishForm="ngForm" (submit)="wishData(wishForm.value)" ngNativeValidate>
+                  <input hidden type="text" name="productId" class="form-control" [(ngModel)]="product.id" required>
+                  <input hidden type="text" name="productName" class="form-control" [(ngModel)]="product.productName" required>
+                  <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" name="quantity" class="form-control" ngModel="1" required>
+                  </div>
+
+
+                  <button type="submit" class="btn btn-lg btn-block btn-primary">Add To
+                    wishlist</button>
+
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <ng-template *ngIf="errorMs.includes(product.id); else elsepart">
+          <button *ngIf="!isAdmin && isUser" type="button" class="btn btn-success" data-toggle="modal"
+            attr.data-target="#cartmodel{{product.id}}">
+            Add To Car
+          </button>
+        </ng-template>
+
+        <ng-template #elsepart>
+          <button *ngIf="!isAdmin && isUser" type="button" class="btn btn-success" data-toggle="modal"
+            attr.data-target="#cartmodel{{product.id}}">
+            Add To Cart
+          </button>
+
+        </ng-template>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="cartmodel{{product.id}}">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add to cart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <form #basicForm="ngForm" (submit)="getData(basicForm.value)" ngNativeValidate>
+                  <input hidden type="text" name="productId" class="form-control" [(ngModel)]="product.id" required>
+                  <input hidden type="text" name="productName" class="form-control" [(ngModel)]="product.productName"
+                    required>
+                  <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" name="quantity" class="form-control" ngModel="1" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="zip">Zip Code</label>
+                    <input type="number" ngModel name="zipcode" class="form-control" id="zip" required>
+                  </div>
+                  <button type="submit" class="btn btn-lg btn-block btn-primary">Add To
+                    Cart</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <ng-template #notTrue>
+    <div class="vertical-center text-center">
+      <img src="assets/cart.png" class="img-fluid" alt="">
+      <P class="text-muted">Sorry, no results found! <br>
+        Please check the spelling or try searching for something else</P>
+      <a routerLink="/products"> <button class="btn btn-danger mt-3 rounded-0 shadow-sm">GO TO
+          HOMEPAGE</button> </a>
+    </div>
+  </ng-template>
+
+</div>

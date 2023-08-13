@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+}
+a{
+    color: #c17780;
+}
+.container-fluid
+{
+   margin: 200px 0 0 500px;
+   animation: zoom-in 3s ease-in-out infinite ;
+   overflow: hidden;
+}
+
+@keyframes zoom-in
+{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1,1.1);
+        margin-left: 550px;
+    }
+    100%
+    {
+        transform: scale(1);
+    }
+}
